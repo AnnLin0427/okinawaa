@@ -44,6 +44,7 @@ table{width:100%;border-collapse:collapse}td,th{padding:8px 6px;border-bottom:1p
 #lb{position:fixed;inset:0;background:#000d;display:none;align-items:center;justify-content:center;z-index:20}#lb img{max-width:94%;max-height:90%;border-radius:14px}
 .ck{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}.ck.d span{text-decoration:line-through;color:var(--mute)}.ck span{flex:1}.ck input{min-width:auto;width:20px;height:20px}
 .x{background:none;border:0;color:var(--mute);cursor:pointer;font-size:18px}
+textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:9px 12px;font:inherit;color:var(--ink)}label{display:block;font-size:13px;color:var(--mute)}label input{width:100%;color:var(--ink);font-size:15px}
 </style></head><body>
 <nav id="nav"></nav>
 <main>
@@ -51,7 +52,7 @@ table{width:100%;border-collapse:collapse}td,th{padding:8px 6px;border-bottom:1p
 <div class="hero"><svg viewBox="0 0 800 420" role="img" aria-label="沖繩插畫"><defs><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9db6d1"/><stop offset="1" stop-color="#e6ecf2"/></linearGradient></defs><rect width="800" height="420" fill="url(#sk)"/><circle cx="640" cy="90" r="42" fill="#f5ecd8"/><ellipse cx="140" cy="100" rx="70" ry="14" fill="#fff" opacity=".7"/><path d="M130 70l60 8-22 14z" fill="#fff"/><rect y="255" width="800" height="110" fill="#b7c9dc"/><path d="M0 285Q200 262 400 285T800 280V420H0z" fill="#e9dfcc"/><path d="M560 255q40-30 90 0z" fill="#8fa5be"/><path d="M60 255q40-60 80 0z" fill="#8fa5be"/><g fill="#7d9a86"><rect x="640" y="215" width="6" height="45"/><path d="M643 190q-30 14-34 30 30-6 34-14 4 8 34 14-4-16-34-30z"/></g><rect y="350" width="800" height="36" fill="#d9ccb5"/><path d="M0 368h800" stroke="#f3ead9" stroke-dasharray="20 14" stroke-width="3"/><g transform="translate(170 322)"><rect width="110" height="34" rx="14" fill="#6b5143"/><rect x="26" y="-16" width="56" height="22" rx="9" fill="#6b5143"/><rect x="34" y="-11" width="40" height="12" rx="4" fill="#c9d6e4"/><circle cx="24" cy="36" r="11" fill="#4a3a30"/><circle cx="88" cy="36" r="11" fill="#4a3a30"/></g></svg></div>
 <div class="title"><h1>OKINAWA<br>TRAVEL JOURNAL</h1><div class="date">2026.12.02 — 2026.12.08</div><div class="cd" id="cd"></div></div>
 <div class="card"><h2>七天六夜，沖繩自駕</h2><p>從那霸出發，北上古宇利島與美麗海，南下玉泉洞與瀨長島，最後以首里城、美國村煙火和中部海岸收尾。冬季日落約 17:45，請盡量在天黑前完成山路與海岸道路的行程。</p>
-<div class="grid"><div><small>旅行天數</small>7 天 6 夜</div><div><small>住宿城市</small>待確認（PDF 未提供）</div><div><small>交通方式</small>自駕（還車 12/7 18:00）</div><div><small>人數</small>2 人</div></div></div>
+<div class="grid"><div><small>旅行天數</small>7 天 6 夜</div><div><small>住宿</small>那霸・HOTEL ANTEROOM NAHA（6 晚）</div><div><small>交通方式</small>自駕（還車 12/7 18:00）</div><div><small>人數</small>2 人</div></div></div>
 <div class="card"><h3>航班</h3><table><tr><td>12/2（三）去程<br><b>MM930</b></td><td>桃園 18:20 → 那霸 20:50</td></tr><tr><td>12/8（二）回程<br><b>MM921</b></td><td>那霸 08:15 → 桃園 08:55</td></tr></table></div>
 <div class="card"><h3>行程快速導覽</h3><div class="chips" id="quick"></div></div>
 <div class="card"><h3>⚠ 請確認的矛盾與缺漏</h3><div id="flags"></div></div>
@@ -64,40 +65,44 @@ table{width:100%;border-collapse:collapse}td,th{padding:8px 6px;border-bottom:1p
 <div class="card" style="overflow:auto"><table id="tb"></table></div></section>
 <section id="photo"><h2 style="padding:18px 0 4px">旅行相簿</h2><div class="chips" id="ptabs"></div><p><label class="btn">上傳照片<input type="file" id="up" accept="image/*" multiple hidden></label></p><p style="color:var(--mute);font-size:13px">照片只存在這支手機／這台電腦的瀏覽器內（已自動縮圖），不會同步給旅伴。</p><div class="wall" id="wall"></div></section>
 <section id="list"><h2 style="padding:18px 0 4px">旅行清單</h2><div class="row"><input id="li" placeholder="新增項目"><select id="lg"></select><button class="btn" id="la" style="flex:0 0 auto">新增</button></div><div id="lc"></div></section>
-<section id="wx"><h2 style="padding:18px 0 4px">天氣資訊</h2><p style="color:var(--mute)">此頁面無法安全連接即時天氣資料，為避免顯示不實數字，請使用以下官方／可靠來源查看天氣、風速與警報。</p><div id="wl"></div></section>
+<section id="wx"><h2 style="padding:18px 0 4px">天氣資訊</h2><p style="color:var(--mute)">天氣資料來自 Open-Meteo，開啟頁面時即時讀取；天氣警報請看下方氣象廳。</p><div id="wd"></div><div id="wl"></div></section>
+<section id="edit"><h2 style="padding:18px 0 4px">編輯內容</h2><p style="color:var(--mute);font-size:13px">修改會自動存在這支手機／這台電腦的瀏覽器。要同步給旅伴，請按「匯出備份」傳檔案給對方，對方在自己的網站按「匯入備份」。</p><div class="chips" id="etabs"></div><div id="ed"></div>
+<div class="card"><h3>備份與還原</h3><p><button class="btn" id="ex">匯出備份</button> <label class="btn o">匯入備份<input type="file" id="im" accept=".json" hidden></label> <button class="btn o" id="rs">還原預設行程</button></p></div></section>
 </main>
 <div id="lb"><img alt=""></div>
 <script>
 /* ======== 修改內容請改這一區 ======== */
 const G=q=>"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q);
-const DAYS=[
-{d:"12/2",w:"週三",t:"抵達那霸",stay:"待確認",items:[
- {time:"20:50",n:"那霸機場抵達",q:"那霸空港",info:"MM930 抵達第1航廈。取行李、搭租車接駁後才取車。",stay:""},
- {time:"21:00",n:"LUCKY 居酒屋（晚餐）",q:"LUCKY居酒屋 那霸",info:"PDF 排 21:00，實際會比較晚。最後點餐時間待確認。",stay:"約 1.5 小時"}],
- notes:["夜間首次駕駛，沖繩靠左行駛，請放慢速度。","抵達 20:50 到 21:00 用餐時間過緊，請確認。"]},
-{d:"12/3",w:"週四",t:"北部：古宇利・美麗海",stay:"待確認（建議那霸）",items:[
- {time:"",n:"許田休息站",q:"道の駅 許田",info:"高速公路出口休息站，PDF 排豬排午餐。",stay:"約 1 小時"},
+const DAYS0=[
+{d:"12/2",w:"週三",t:"抵達那霸",stay:"HOTEL ANTEROOM NAHA",items:[
+ {time:"20:50",n:"那霸機場抵達",q:"那霸空港",info:"MM930 抵達第1航廈。租車 12/3 09:00 才取，今晚不開車。",stay:""},
+ {time:"22:30",n:"LUCKY MAXIMUM（晚餐，已預約）",q:"LUCKY MAXIMUM 那霸",info:"已預約 22:30。建議先到飯店放行李再前往（機場到飯店的交通方式待確認）。",stay:"約 1.5 小時"}],
+ notes:["12/2 晚上不開車，12/3 09:00 取車後才開始自駕，沖繩靠左行駛。","20:50 抵達、22:30 用餐，中間請預留出關、到飯店的時間。"]},
+{d:"12/3",w:"週四",t:"北部：古宇利・美麗海",stay:"HOTEL ANTEROOM NAHA",items:[
+ {time:"09:00",n:"取車後直接出發",q:"那霸空港",info:"租車 09:00 取車（取車地點請確認），完成手續、調整座椅與導航後直接前往許田休息站。",stay:"約 30 分鐘"},
+ {time:"",n:"許田休息站",q:"道の駅 許田",drive:"約 1.5 小時（估，依取車地點）",info:"高速公路休息站。",stay:"約 30 分鐘"},
+ {time:"",n:"アグーとんかつの店 沖縄やんばる家（午餐）",q:"アグーとんかつの店 沖縄やんばる家",info:"阿古豬豬排。營業時間與最後點餐請確認。",stay:"約 1 小時",drive:"請用導航確認車程"},
  {time:"",n:"古宇利島",q:"古宇利島",info:"跨海大橋與海灘景觀。",stay:"約 1.5 小時",drive:"約 35 分（估）"},
  {time:"",n:"沖繩美麗海水族館",q:"沖縄美ら海水族館",info:"冬季開館時間與最後入場請查官網。",stay:"約 2 小時",drive:"約 35 分（估）"},
- {time:"19:00",n:"WAGYU SUKIYAKI（已訂位）",q:"WAGYU SUKIYAKI 那霸 国際通り",info:"國際通晚餐，已訂位 19:00。",stay:"約 1.5 小時",drive:"約 1 小時 50 分（估）"}],
- notes:["日落約 17:45，離開美麗海後是夜間行車。","為趕 19:00 訂位，建議最遲 17:00 前離開美麗海，請確認。"]},
-{d:"12/4",w:"週五",t:"南部：玉泉洞・瀨長島",stay:"待確認",items:[
- {time:"",n:"zigzags opportunity（PDF 內容不明）",q:"zigzags opportunity 沖縄",info:"PDF 只有連結文字，請確認地點。",stay:"待確認"},
+ {time:"19:00",n:"WAGYU SUKIYAKI（已訂位）",q:"WAGYU SUKIYAKI 那霸 国際通り",info:"國際通晚餐，已訂位 19:00。",stay:"約 1.5 小時",drive:"預留 1.5–2 小時"}],
+ notes:["日落約 17:45，離開美麗海後是夜間行車。","美麗海到那霸預留 1.5–2 小時，19:00 訂位建議最晚 17:00 前離開美麗海。"]},
+{d:"12/4",w:"週五",t:"南部：玉泉洞・瀨長島",stay:"HOTEL ANTEROOM NAHA",items:[
+ {time:"",n:"zigzags opportunity shop",q:"zigzags opportunity shop 沖縄",info:"PDF 排的第一站（餐廳），營業時間請確認。",stay:"約 1 小時"},
  {time:"",n:"波上宮",q:"波上宮",info:"那霸海邊神社。",stay:"約 40 分鐘"},
  {time:"",n:"沖繩世界文化王國・玉泉洞",q:"おきなわワールド 玉泉洞",info:"鐘乳石洞。",stay:"約 2 小時",drive:"約 40 分（估）"},
  {time:"",n:"系滿海鮮市場（中餐）",q:"糸満漁民食堂",info:"PDF 註明中餐，店家請確認。",stay:"約 1 小時",drive:"約 25 分（估）"},
  {time:"",n:"iias 沖繩豐崎（DMM 水族館）",q:"iias沖縄豊崎",info:"購物與 DMM 水族館。",stay:"約 2 小時",drive:"約 15 分（估）"},
  {time:"",n:"瀨長島 Umikaji Terrace",q:"瀬長島ウミカジテラス",info:"日落與飛機景觀。",stay:"約 1.5 小時",drive:"約 10 分（估）"}],
- notes:["順序為那霸→南部→回那霸附近，請確認 zigzags 是否在行程前段。"]},
-{d:"12/5",w:"週六",t:"首里・中部・美國村",stay:"待確認",items:[
+ notes:["順序為 zigzags opportunity shop→波上宮→南部→瀨長島，請用 Google Maps 確認動線。"]},
+{d:"12/5",w:"週六",t:"首里・中部・美國村",stay:"HOTEL ANTEROOM NAHA",items:[
  {time:"",n:"HUU'S COFFEE",q:"HUU'S COFFEE 沖縄",info:"早晨咖啡，店址請確認。",stay:"約 45 分鐘"},
  {time:"12:30–13:00",n:"首里城",q:"首里城公園",info:"PDF 指定時段，時間請預約或確認入場規定。",stay:"約 1.5 小時"},
  {time:"",n:"萬座毛",q:"万座毛",info:"海岸斷崖景點。",stay:"約 45 分鐘",drive:"約 1 小時（估）"},
  {time:"",n:"座喜味城跡",q:"座喜味城跡",info:"世界遺產城跡，閉園時間請確認。",stay:"約 45 分鐘",drive:"約 25 分（估）"},
  {time:"",n:"永旺夢樂城沖繩來客夢",q:"イオンモール沖縄ライカム",info:"購物中心，已確認店別。",stay:"約 1 小時",drive:"約 25 分（估）"},
  {time:"20:00",n:"美國村煙火＋晚餐",q:"美浜アメリカンビレッジ",info:"煙火 20:00，晚餐餐廳 PDF 尚未決定。",stay:"約 2.5 小時",drive:"約 10 分（估）"}],
- notes:["12/5 煙火日期請查美國村官網確認。","首里城與萬座毛合計行程緊湊，天黑後北部沿海路請小心。"]},
-{d:"12/6",w:"週日",t:"東部離島・藝術",stay:"待確認",items:[
+ notes:["美國村煙火 20:00 開始，請提早找停車位。","首里城與萬座毛合計行程緊湊，天黑後北部沿海路請小心。"]},
+{d:"12/6",w:"週日",t:"東部離島・藝術",stay:"HOTEL ANTEROOM NAHA",items:[
  {time:"",n:"泊港海鮮市場（早餐）",q:"泊いゆまち",info:"早餐。",stay:"約 1 小時"},
  {time:"",n:"Mame Pole Pole Coffee",q:"Mame Pole Pole Coffee 沖縄",info:"店址請確認。",stay:"約 45 分鐘"},
  {time:"",n:"宮城島・濱比嘉島",q:"浜比嘉島",info:"海中道路後的離島景點。",stay:"約 2 小時"},
@@ -105,7 +110,7 @@ const DAYS=[
  {time:"",n:"underscore COFFEE STAND",q:"underscore COFFEE STAND 沖縄",info:"店址請確認。",stay:"約 40 分鐘"},
  {time:"20:20",n:"Buchi Kumojiten ぶち 久茂地2号店",q:"ぶち 久茂地2号店",info:"PDF 排 20:20，是否已訂位請確認。",stay:"約 1.5 小時"}],
  notes:["海中道路遇強風請減速。"]},
-{d:"12/7",w:"週一",t:"逛街・還車",stay:"建議靠近機場（08:15 班機）",items:[
+{d:"12/7",w:"週一",t:"逛街・還車",stay:"HOTEL ANTEROOM NAHA",items:[
  {time:"",n:"PARCO CITY",q:"PARCO CITY 浦添",info:"逛街日，行程未定。",stay:"彈性"},
  {time:"",n:"加油並還車",q:"那覇空港 レンタカー返却",info:"請依租車公司規定先加滿油。",stay:"",drive:"請預留機場交通時間"},
  {time:"18:00",n:"還車時限",q:"那覇空港",info:"PDF 標示 18:00 還車。",stay:""}],
@@ -113,33 +118,36 @@ const DAYS=[
 {d:"12/8",w:"週二",t:"返台",stay:"—",items:[
  {time:"08:15",n:"MM921 那霸→桃園",q:"那霸空港 国際線",info:"08:55 抵達桃園，建議 06:00 前到機場。",stay:""}],
  notes:["班機早，請提前安排交通與早餐。"]}];
-const FOOD=[
-{r:"那霸",n:"LUCKY 居酒屋",tag:"PDF",q:"LUCKY居酒屋 那霸",h:"待確認",p:"待確認",m:"待確認",t:"機場至店車程待確認"},
+const FOOD0=[
+{r:"那霸",n:"LUCKY MAXIMUM",tag:"PDF",q:"LUCKY MAXIMUM 那霸",h:"22:30 已預約",p:"待確認",m:"待確認",t:"在那霸市區，距飯店車程待確認"},
 {r:"那霸",n:"WAGYU SUKIYAKI",tag:"PDF",q:"WAGYU SUKIYAKI 那霸 国際通り",h:"19:00 已訂位",p:"待確認",m:"壽喜燒",t:"國際通步行範圍"},
+{r:"北部",n:"アグーとんかつの店 沖縄やんばる家",tag:"PDF",q:"アグーとんかつの店 沖縄やんばる家",h:"12/3 許田休息站之後｜營業時間待確認",p:"待確認",m:"阿古豬豬排",t:"許田休息站後，請用導航確認"},
+{r:"南部",n:"zigzags opportunity shop",tag:"PDF",q:"zigzags opportunity shop 沖縄",h:"12/4 第一站｜營業時間待確認",p:"待確認",m:"待確認",t:"請用導航確認"},
 {r:"北部",n:"Kouri Shrimp 古宇利蝦",tag:"建議",q:"Kouri Shrimp 古宇利島",h:"待確認",p:"待確認",m:"蒜香蝦飯",t:"在古宇利島，順路"},
 {r:"首里",n:"首里そば",tag:"建議",q:"首里そば 首里城",h:"待確認（常見午餐時段營業）",p:"待確認",m:"沖繩麵",t:"首里城附近，約 10 分"},
 {r:"那霸",n:"Buchi Kumojiten 久茂地2号店",tag:"PDF",q:"ぶち 久茂地2号店",h:"20:20 到店",p:"待確認",m:"待確認",t:"久茂地"}];
-const CK={"護照及重要文件":["護照（效期 6 個月以上）","Visit Japan Web 入境 QR","駕照日文譯本／台灣駕照正本","身分證"],"機票及租車文件":["MM930／MM921 電子機票","租車預約確認","ETC 卡確認"],"相機及充電設備":["手機充電線","行動電源","車用手機架與充電器","相機與記憶卡"],"盥洗用品":["牙刷牙膏","保養品","常備藥品"],"出發前確認事項":["日圓現金與信用卡","網路 eSIM／漫遊","確認住宿（PDF 未提供）","確認 12/5 煙火日期","查詢天氣"]};
+const CK={"護照及重要文件":["護照（效期 6 個月以上）","Visit Japan Web 入境 QR","駕照日文譯本／台灣駕照正本","身分證"],"機票及租車文件":["MM930／MM921 電子機票","租車預約確認","ETC 卡確認"],"相機及充電設備":["手機充電線","行動電源","車用手機架與充電器","相機與記憶卡"],"盥洗用品":["牙刷牙膏","保養品","常備藥品"],"出發前確認事項":["日圓現金與信用卡","網路 eSIM／漫遊","確認 HOTEL ANTEROOM NAHA 訂房","確認 12/5 美國村煙火 20:00","查詢天氣"]};
 const WX=[["氣象廳 沖繩預報與警報","https://www.jma.go.jp/bosai/forecast/#area_type=offices&area_code=470000"],["Windy 那霸風速地圖","https://www.windy.com/26.212/127.679"],["Google 天氣：那霸","https://www.google.com/search?q=那霸+天氣"],["Google 天氣：名護（美麗海）","https://www.google.com/search?q=名護+天氣"],["Google 天氣：美國村（北谷）","https://www.google.com/search?q=北谷+天氣"]];
 /* ======== 以下為功能程式 ======== */
 const $=s=>document.querySelector(s),L=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},S=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));return 1}catch(e){alert("儲存空間已滿");return 0}};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const pages=[["home","首頁"],["days","行程"],["food","餐廳"],["budget","預算"],["photo","相簿"],["list","清單"],["wx","天氣"]];
+let DAYS=L("days",null)||DAYS0,FOOD=L("food",null)||FOOD0,cur=0;const Q=x=>x.q||x.n;
+const pages=[["home","首頁"],["days","行程"],["food","餐廳"],["budget","預算"],["photo","相簿"],["list","清單"],["wx","天氣"],["edit","編輯"]];
 $("#nav").innerHTML=pages.map(p=>`<a data-p="${p[0]}">${p[1]}</a>`).join("");
-function go(p,d){document.querySelectorAll("section").forEach(s=>s.classList.toggle("on",s.id==p));document.querySelectorAll("nav a").forEach(a=>a.classList.toggle("on",a.dataset.p==p));if(d!=null)showDay(d);scrollTo(0,0);history.replaceState(null,"","#"+p)}
+function go(p,d){document.querySelectorAll("section").forEach(s=>s.classList.toggle("on",s.id==p));document.querySelectorAll("nav a").forEach(a=>a.classList.toggle("on",a.dataset.p==p));if(p=="days")showDay(d??cur);if(p=="food")rf();if(p=="edit")re();if(p=="home")rfl();if(p=="wx")wx();scrollTo(0,0);history.replaceState(null,"","#"+p)}
 $("#nav").onclick=e=>e.target.dataset.p&&go(e.target.dataset.p);
 const DL=DAYS.map((d,i)=>`<button class="chip" data-i="${i}">DAY ${i+1}<br><small>${d.d}</small></button>`).join("");
 $("#quick").innerHTML=DL;$("#dtabs").innerHTML=DL;
 $("#quick").onclick=e=>{const b=e.target.closest("button");b&&go("days",+b.dataset.i)};
 $("#dtabs").onclick=e=>{const b=e.target.closest("button");b&&showDay(+b.dataset.i)};
-function showDay(i){document.querySelectorAll("#dtabs .chip").forEach((c,j)=>c.classList.toggle("on",i==j));const d=DAYS[i],names=d.items.map(x=>x.q);
-const route=names.length>1?"https://www.google.com/maps/dir/"+names.map(encodeURIComponent).join("/"):G(names[0]);
-$("#day").innerHTML=`<div class="card"><small style="color:var(--mute)">DAY ${i+1}　${d.d} ${d.w}</small><h2>${esc(d.t)}</h2><p>住宿：${esc(d.stay)}</p><a class="btn" target="_blank" rel="noopener" href="${route}">開啟整日行車路線</a>
-<div class="tl">${d.items.map((x,k)=>{const prev=k?"&origin="+encodeURIComponent(d.items[k-1].q):"";return `${x.drive?`<div class="drv">🚗 ${esc(x.drive)}</div>`:""}<div class="st"><span class="tm">${esc(x.time||"時間待定")}</span><h3>${esc(x.n)}</h3><p style="margin:2px 0">${esc(x.info)}</p>${x.stay?`<span class="tag">停留 ${esc(x.stay)}</span>`:""}<a class="btn o" target="_blank" rel="noopener" href="${k?"https://www.google.com/maps/dir/?api=1&destination="+encodeURIComponent(x.q)+prev+"&travelmode=driving":G(x.q)}">${k?"從上一站導航":"Google Maps"}</a></div>`}).join("")}</div>
+function showDay(i){cur=i;document.querySelectorAll("#dtabs .chip").forEach((c,j)=>c.classList.toggle("on",i==j));const d=DAYS[i],names=d.items.map(Q);
+const route=names.length>1?"https://www.google.com/maps/dir/"+names.map(encodeURIComponent).join("/"):G(names[0]||"那霸");
+$("#day").innerHTML=`<div class="card"><small style="color:var(--mute)">DAY ${i+1}　${d.d} ${d.w}</small><h2>${esc(d.t)}</h2><p>住宿：${esc(d.stay)}${d.stay.startsWith("HOTEL")?` ・ <a target="_blank" rel="noopener" href="${G("HOTEL ANTEROOM NAHA")}" style="color:var(--blue2)">地圖</a>`:""}</p><a class="btn" target="_blank" rel="noopener" href="${route}">開啟整日行車路線</a>
+<div class="tl">${d.items.map((x,k)=>{const prev=k?"&origin="+encodeURIComponent(Q(d.items[k-1])):"";return `${x.drive?`<div class="drv">🚗 ${esc(x.drive)}</div>`:""}<div class="st"><span class="tm">${esc(x.time||"時間待定")}</span><h3>${esc(x.n)}</h3><p style="margin:2px 0">${esc(x.info)}</p>${x.stay?`<span class="tag">停留 ${esc(x.stay)}</span>`:""}<a class="btn o" target="_blank" rel="noopener" href="${k?"https://www.google.com/maps/dir/?api=1&destination="+encodeURIComponent(Q(x))+prev+"&travelmode=driving":G(Q(x))}">${k?"從上一站導航":"Google Maps"}</a></div>`}).join("")}</div>
 ${d.notes.map(n=>`<div class="warn">⚠ ${esc(n)}</div>`).join("")}
 <div class="warn" style="background:var(--oat);color:var(--ink)">地址、營業時間請點 Google Maps 查看最新資訊；車程為估計值。</div></div>`}
-$("#flags").innerHTML=["PDF 沒有住宿資料，每日住宿皆標示「待確認」。","12/2 抵達 20:50，PDF 排 21:00 居酒屋，時間偏緊。","12/3 美麗海到那霸 19:00 訂位，需確認離開時間。","12/4 的 zigzags opportunity 不明，請補地點。","12/5 美國村煙火日期請確認。","12/7 18:00 還車，12/8 08:15 班機，住宿建議靠近機場。","需求文中提到「北海道」，已當作沖繩處理。"].map(t=>`<div class="warn">${t}</div>`).join("");
-$("#fl").innerHTML=FOOD.map(f=>`<div class="card"><span class="tag">${f.tag}</span><span class="tag">${f.r}</span><h3>${esc(f.n)}</h3><p style="margin:4px 0">推薦：${esc(f.m)}<br>營業時間／公休：${esc(f.h)}<br>價格：${esc(f.p)}<br>交通：${esc(f.t)}</p><a class="btn o" target="_blank" rel="noopener" href="${G(f.q)}">Google Maps</a></div>`).join("");
+const FLAGS0=["12/3 離開美麗海需預留 1.5–2 小時，才趕得上 19:00 訂位。","12/4 zigzags opportunity shop 位置未提供，玉泉洞在南部，請確認排序是否順路。","12/5 首里城 12:30–13:00 到萬座毛約 1 小時，下午行程緊湊。","12/6 Buchi 20:20 是否已訂位請確認。","各餐廳營業時間與價格尚未確認，出發前請查 Google Maps。","12/7 18:00 還車，12/8 08:15 班機，請預留從飯店到機場的時間（建議 06:00 前抵達）。"];let FLAGS=L("flags",null)||FLAGS0;function rfl(){$("#flags").innerHTML=FLAGS.map(t=>`<div class="warn">${esc(t)}</div>`).join("")}
+function rf(){$("#fl").innerHTML=FOOD.map(f=>`<div class="card"><span class="tag">${f.tag}</span><span class="tag">${f.r}</span><h3>${esc(f.n)}</h3><p style="margin:4px 0">推薦：${esc(f.m)}<br>營業時間／公休：${esc(f.h)}<br>價格：${esc(f.p)}<br>交通：${esc(f.t)}</p><a class="btn o" target="_blank" rel="noopener" href="${G(f.q||f.n)}">Google Maps</a></div>`).join("")}
 $("#wl").innerHTML=WX.map(w=>`<a class="card" style="display:block;color:inherit;text-decoration:none" target="_blank" rel="noopener" href="${w[1]}">${w[0]}</a>`).join("");
 /* countdown */
 function tick(){const t=new Date("2026-12-02T18:20:00+08:00")-Date.now();if(t<=0){$("#cd").textContent="旅程進行中或已結束";return}const m=Math.floor(t/6e4);$("#cd").innerHTML=`距離出發${[[Math.floor(m/1440),"天"],[Math.floor(m/60)%24,"時"],[m%60,"分"]].map(x=>`<b>${x[0]}<small>${x[1]}</small></b>`).join("")}`}tick();setInterval(tick,3e4);
@@ -169,5 +177,31 @@ $("#lg").innerHTML=Object.keys(CK).map(g=>`<option>${g}`).join("");
 function rl(){$("#lc").innerHTML=Object.keys(CK).map(g=>`<div class="card"><h3>${g}</h3>${CL.map((x,i)=>x.g==g?`<div class="ck ${x.d?"d":""}"><input type="checkbox" data-t="${i}" ${x.d?"checked":""}><span>${esc(x.t)}</span><button class="x" data-r="${i}">✕</button></div>`:"").join("")}</div>`).join("")}
 $("#lc").onclick=e=>{const t=e.target;if(t.dataset.t!=null)CL[+t.dataset.t].d=t.checked?1:0;else if(t.dataset.r!=null)CL.splice(+t.dataset.r,1);else return;S("cl",CL);rl()};
 $("#la").onclick=()=>{const v=$("#li").value.trim();if(!v)return;CL.push({g:$("#lg").value,t:v,d:0});$("#li").value="";S("cl",CL);rl()};rl();
+
+let em=0;const ET=DAYS0.map((d,i)=>`DAY ${i+1}`).concat(["餐廳","首頁提醒"]);
+$("#etabs").innerHTML=ET.map((t,i)=>`<button class="chip" data-i="${i}">${t}</button>`).join("");
+$("#etabs").onclick=e=>{const b=e.target.closest("button");if(b){em=+b.dataset.i;re()}};
+const FI=[["time","時間"],["n","名稱"],["q","Google Maps 搜尋字（空白則用名稱）"],["info","簡介"],["stay","停留時間"],["drive","從上一站車程"]],FF=[["n","名稱"],["r","地區"],["tag","標籤（PDF／建議）"],["q","Google Maps 搜尋字"],["h","營業時間／公休"],["p","價格"],["m","推薦餐點"],["t","交通"]];
+const inp=(a,i,k,l,v)=>`<label>${l}<input data-a="${a}" data-i="${i}" data-k="${k}" value="${esc(v||"")}"></label>`,bar=i=>`<button class="x" data-act="up" data-i="${i}">↑</button><button class="x" data-act="dn" data-i="${i}">↓</button><button class="x" data-act="del" data-i="${i}">✕</button>`;
+function re(){document.querySelectorAll("#etabs .chip").forEach((c,j)=>c.classList.toggle("on",j==em));let h="";const n=DAYS.length;
+if(em<n){const d=DAYS[em];h=`<div class="card">${inp("day",0,"t","當日主題",d.t)}${inp("day",0,"stay","住宿",d.stay)}<label>注意事項（一行一則）<textarea data-a="note" rows="4">${esc(d.notes.join("\n"))}</textarea></label></div>`+d.items.map((x,i)=>`<div class="card"><b>第 ${i+1} 站</b>${bar(i)}<div class="row">${FI.map(f=>inp("item",i,f[0],f[1],x[f[0]])).join("")}</div></div>`).join("")+`<button class="btn" data-act="add">＋ 新增景點</button>`}
+else if(em==n)h=FOOD.map((x,i)=>`<div class="card"><b>${esc(x.n)}</b>${bar(i)}<div class="row">${FF.map(f=>inp("food",i,f[0],f[1],x[f[0]])).join("")}</div></div>`).join("")+`<button class="btn" data-act="add">＋ 新增餐廳</button>`;
+else h=`<div class="card"><label>首頁「請確認」清單（一行一則）<textarea data-a="flag" rows="8">${esc(FLAGS.join("\n"))}</textarea></label></div>`;
+$("#ed").innerHTML=h}
+const sv=()=>{S("days",DAYS);S("food",FOOD);S("flags",FLAGS)};
+$("#ed").oninput=e=>{const t=e.target,a=t.dataset.a,i=+t.dataset.i,k=t.dataset.k,v=t.value;
+if(a=="day")DAYS[em][k]=v;else if(a=="note")DAYS[em].notes=v.split("\n").map(x=>x.trim()).filter(Boolean);else if(a=="item")DAYS[em].items[i][k]=v;else if(a=="food")FOOD[i][k]=v;else if(a=="flag")FLAGS=v.split("\n").map(x=>x.trim()).filter(Boolean);else return;sv()};
+$("#ed").onclick=e=>{const b=e.target.closest("button");if(!b)return;const act=b.dataset.act,i=+b.dataset.i,A=em<DAYS.length?DAYS[em].items:FOOD;
+if(act=="add")A.push(em<DAYS.length?{time:"",n:"新景點",q:"",info:"",stay:"",drive:""}:{r:"",n:"新餐廳",tag:"建議",q:"",h:"待確認",p:"待確認",m:"待確認",t:"待確認"});
+else if(act=="del"){if(!confirm("刪除這一筆？"))return;A.splice(i,1)}
+else if(act=="up"&&i>0)[A[i-1],A[i]]=[A[i],A[i-1]];else if(act=="dn"&&i<A.length-1)[A[i+1],A[i]]=[A[i],A[i+1]];else return;sv();re()};
+const BK=["days","food","flags","exp","cfg","cl"];
+$("#ex").onclick=()=>{const o={};BK.forEach(k=>o[k]=L(k,null));const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(o)],{type:"application/json"}));a.download="okinawa-backup.json";a.click()};
+$("#im").onchange=async e=>{try{const o=JSON.parse(await e.target.files[0].text());if(!confirm("匯入會覆蓋目前的行程、預算與清單，確定？"))return;BK.forEach(k=>o[k]!=null&&S(k,o[k]));location.reload()}catch(x){alert("檔案格式不正確")}};
+$("#rs").onclick=()=>{if(confirm("行程、餐廳與提醒會還原為預設內容（預算、清單、照片不受影響）。確定？")){["days","food","flags"].forEach(k=>localStorage.removeItem(k));location.reload()}};
+const CITY=[["那霸（住宿）",26.2124,127.6809],["名護（美麗海）",26.5917,127.9772],["北谷（美國村）",26.3167,127.7667]];
+const wc=c=>c==0?"晴":c<3?"晴時多雲":c==3?"陰":c<50?"霧":c<60?"毛毛雨":c<70?"雨":c<80?"雪":c<90?"陣雨":"雷雨";
+async function wx(){const box=$("#wd");box.textContent="載入中…";try{const out=[];for(const c of CITY){const r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${c[1]}&longitude=${c[2]}&current=temperature_2m,wind_speed_10m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,wind_speed_10m_max&timezone=Asia%2FTokyo&forecast_days=16`);if(!r.ok)throw 0;const j=await r.json(),tr=j.daily.time.map((t,i)=>({t,i})).filter(x=>x.t>="2026-12-02"&&x.t<="2026-12-08");
+out.push(`<div class="card"><h3>${c[0]}</h3><p>現在：${wc(j.current.weather_code)}　${j.current.temperature_2m}°C　風速 ${j.current.wind_speed_10m} km/h</p>${tr.length?tr.map(x=>`<div class="drv">${x.t.slice(5).replace("-","/")}　${wc(j.daily.weather_code[x.i])}　${j.daily.temperature_2m_min[x.i]}–${j.daily.temperature_2m_max[x.i]}°C　最大風速 ${j.daily.wind_speed_10m_max[x.i]} km/h</div>`).join(""):'<div class="drv">旅行日期尚未進入預報範圍（約出發前 16 天才會顯示）。</div>'}</div>`)}box.innerHTML=out.join("")}catch(x){box.innerHTML='<div class="warn">天氣資料暫時無法讀取，請使用下方連結。</div>'}}
 go(pages.some(p=>p[0]==location.hash.slice(1))?location.hash.slice(1):"home");
 </script></body></html>
