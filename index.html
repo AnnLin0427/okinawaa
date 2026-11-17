@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OKINAWA TRAVEL JOURNAL</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌺</text></svg>">
+<style>
+:root{--bg:#f6f1e9;--card:#fbf8f3;--line:#e3d9c9;--ink:#4a3a30;--mute:#8d7b6b;--blue:#d7e0ec;--blue2:#9fb5cf;--oat:#ebe1d0;--warn:#a5683c;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a231e;--card:#342c26;--line:#4a3f36;--ink:#efe5d6;--mute:#b3a592;--blue:#3b4756;--blue2:#8fa6c4;--oat:#463b31;--warn:#e0a173}}
+html{height:100%;scroll-padding-top:70px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.7 "Noto Sans TC","PingFang TC","Hiragino Sans",sans-serif;-webkit-text-size-adjust:100%}
+h1,h2,h3{font-family:"Quicksand","Noto Sans TC",sans-serif;font-weight:600;margin:0}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:6px;overflow-x:auto;padding:10px 14px;scrollbar-width:none}
+nav a{flex:none;padding:8px 18px;border-radius:99px;color:var(--mute);text-decoration:none;cursor:pointer}
+nav a.on{background:var(--oat);color:var(--ink);font-weight:600}
+main{max-width:860px;margin:auto}
+section{display:none;padding:0 16px 60px}section.on{display:block}
+.hero{margin:0 -16px}.hero svg{display:block;width:100%;height:auto}
+.title{text-align:center;padding:26px 8px 8px;background:var(--card);margin:0 -16px;border-radius:0 0 40px 40px}
+.title h1{font-size:clamp(30px,8vw,52px);letter-spacing:.02em;line-height:1.15}
+.date{letter-spacing:.2em;color:var(--mute);margin:10px 0 18px}
+.cd{display:flex;gap:10px;justify-content:center;align-items:center;padding-bottom:26px}
+.cd b{background:var(--blue);border-radius:18px;padding:8px 14px;font:600 24px/1.2 Quicksand,sans-serif;text-align:center;min-width:62px}.cd b small{display:block;font:12px "Noto Sans TC";color:var(--mute)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:20px;margin:16px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.grid div{background:var(--oat);border-radius:18px;padding:12px 14px}.grid small{color:var(--mute);display:block}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:16px;padding:8px 14px;cursor:pointer;font:inherit}
+.chip.on{background:var(--blue);border-color:var(--blue2)}
+button,input,select{font:inherit;color:var(--ink)}
+.btn{background:var(--ink);color:var(--bg);border:0;border-radius:99px;padding:9px 18px;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.o{background:none;border:1px solid var(--line);color:var(--ink)}
+input,select{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:9px 12px;min-width:0}
+.tl{border-left:2px dashed var(--line);margin:18px 0 0 8px;padding-left:20px}
+.st{position:relative;margin-bottom:18px}.st:before{content:"";position:absolute;left:-28px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--blue2);border:3px solid var(--bg)}
+.st h3{font-size:18px}.tm{color:var(--mute);font-size:13px}
+.drv{color:var(--mute);font-size:13px;margin:-6px 0 14px}
+.warn{background:#f3e3d2;color:#6d4425;border-radius:14px;padding:10px 14px;margin:8px 0;font-size:14px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .warn{background:#4a382a;color:#f0d3b8}}
+.tag{background:var(--blue);border-radius:8px;padding:1px 8px;font-size:12px;margin-right:6px}
+table{width:100%;border-collapse:collapse}td,th{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left;font-size:14px}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.row>*{flex:1 1 110px}
+.wall{columns:2 140px;column-gap:10px}.wall img{width:100%;border-radius:16px;margin-bottom:10px;display:block;cursor:zoom-in}
+#lb{position:fixed;inset:0;background:#000d;display:none;align-items:center;justify-content:center;z-index:20}#lb img{max-width:94%;max-height:90%;border-radius:14px}
+.ck{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}.ck.d span{text-decoration:line-through;color:var(--mute)}.ck span{flex:1}.ck input{min-width:auto;width:20px;height:20px}
+.x{background:none;border:0;color:var(--mute);cursor:pointer;font-size:18px}
+</style></head><body>
+<nav id="nav"></nav>
+<main>
+<section id="home">
+<div class="hero"><svg viewBox="0 0 800 420" role="img" aria-label="沖繩插畫"><defs><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9db6d1"/><stop offset="1" stop-color="#e6ecf2"/></linearGradient></defs><rect width="800" height="420" fill="url(#sk)"/><circle cx="640" cy="90" r="42" fill="#f5ecd8"/><ellipse cx="140" cy="100" rx="70" ry="14" fill="#fff" opacity=".7"/><path d="M130 70l60 8-22 14z" fill="#fff"/><rect y="255" width="800" height="110" fill="#b7c9dc"/><path d="M0 285Q200 262 400 285T800 280V420H0z" fill="#e9dfcc"/><path d="M560 255q40-30 90 0z" fill="#8fa5be"/><path d="M60 255q40-60 80 0z" fill="#8fa5be"/><g fill="#7d9a86"><rect x="640" y="215" width="6" height="45"/><path d="M643 190q-30 14-34 30 30-6 34-14 4 8 34 14-4-16-34-30z"/></g><rect y="350" width="800" height="36" fill="#d9ccb5"/><path d="M0 368h800" stroke="#f3ead9" stroke-dasharray="20 14" stroke-width="3"/><g transform="translate(170 322)"><rect width="110" height="34" rx="14" fill="#6b5143"/><rect x="26" y="-16" width="56" height="22" rx="9" fill="#6b5143"/><rect x="34" y="-11" width="40" height="12" rx="4" fill="#c9d6e4"/><circle cx="24" cy="36" r="11" fill="#4a3a30"/><circle cx="88" cy="36" r="11" fill="#4a3a30"/></g></svg></div>
+<div class="title"><h1>OKINAWA<br>TRAVEL JOURNAL</h1><div class="date">2026.12.02 — 2026.12.08</div><div class="cd" id="cd"></div></div>
+<div class="card"><h2>七天六夜，沖繩自駕</h2><p>從那霸出發，北上古宇利島與美麗海，南下玉泉洞與瀨長島，最後以首里城、美國村煙火和中部海岸收尾。冬季日落約 17:45，請盡量在天黑前完成山路與海岸道路的行程。</p>
+<div class="grid"><div><small>旅行天數</small>7 天 6 夜</div><div><small>住宿城市</small>待確認（PDF 未提供）</div><div><small>交通方式</small>自駕（還車 12/7 18:00）</div><div><small>人數</small>2 人</div></div></div>
+<div class="card"><h3>航班</h3><table><tr><td>12/2（三）去程<br><b>MM930</b></td><td>桃園 18:20 → 那霸 20:50</td></tr><tr><td>12/8（二）回程<br><b>MM921</b></td><td>那霸 08:15 → 桃園 08:55</td></tr></table></div>
+<div class="card"><h3>行程快速導覽</h3><div class="chips" id="quick"></div></div>
+<div class="card"><h3>⚠ 請確認的矛盾與缺漏</h3><div id="flags"></div></div>
+</section>
+<section id="days"><div class="chips" id="dtabs" style="padding:14px 0"></div><div id="day"></div></section>
+<section id="food"><h2 style="padding:18px 0 4px">餐廳</h2><p style="color:var(--mute)">標示「PDF」為你已排定；「建議」為補充，營業時間未經確認一律標示待確認，出發前請在 Google Maps 查看。</p><div id="fl"></div></section>
+<section id="budget"><h2 style="padding:18px 0 4px">旅行預算</h2>
+<div class="card"><div class="row"><label>總預算（台幣）<input id="bt" type="number" inputmode="decimal"></label><label>匯率（1 日圓＝台幣）<input id="br" type="number" step="0.001" inputmode="decimal"></label></div><div class="row"><label>旅伴 A<input id="pa"></label><label>旅伴 B<input id="pb"></label></div><div id="sum"></div></div>
+<div class="card"><h3 id="ft">新增支出</h3><div class="row"><select id="c"><option>機票<option>租車<option>住宿<option>ETC／高速公路費<option>油錢<option>餐飲<option>購物<option>景點門票<option>其他</select><input id="n" placeholder="備註"></div><div class="row"><input id="a" type="number" inputmode="decimal" placeholder="金額"><select id="u"><option>JPY<option>TWD</select><select id="p"></select></div><button class="btn" id="add">新增</button> <button class="btn o" id="cx" hidden>取消修改</button></div>
+<div class="card" style="overflow:auto"><table id="tb"></table></div></section>
+<section id="photo"><h2 style="padding:18px 0 4px">旅行相簿</h2><div class="chips" id="ptabs"></div><p><label class="btn">上傳照片<input type="file" id="up" accept="image/*" multiple hidden></label></p><p style="color:var(--mute);font-size:13px">照片只存在這支手機／這台電腦的瀏覽器內（已自動縮圖），不會同步給旅伴。</p><div class="wall" id="wall"></div></section>
+<section id="list"><h2 style="padding:18px 0 4px">旅行清單</h2><div class="row"><input id="li" placeholder="新增項目"><select id="lg"></select><button class="btn" id="la" style="flex:0 0 auto">新增</button></div><div id="lc"></div></section>
+<section id="wx"><h2 style="padding:18px 0 4px">天氣資訊</h2><p style="color:var(--mute)">此頁面無法安全連接即時天氣資料，為避免顯示不實數字，請使用以下官方／可靠來源查看天氣、風速與警報。</p><div id="wl"></div></section>
+</main>
+<div id="lb"><img alt=""></div>
+<script>
+/* ======== 修改內容請改這一區 ======== */
+const G=q=>"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q);
+const DAYS=[
+{d:"12/2",w:"週三",t:"抵達那霸",stay:"待確認",items:[
+ {time:"20:50",n:"那霸機場抵達",q:"那霸空港",info:"MM930 抵達第1航廈。取行李、搭租車接駁後才取車。",stay:""},
+ {time:"21:00",n:"LUCKY 居酒屋（晚餐）",q:"LUCKY居酒屋 那霸",info:"PDF 排 21:00，實際會比較晚。最後點餐時間待確認。",stay:"約 1.5 小時"}],
+ notes:["夜間首次駕駛，沖繩靠左行駛，請放慢速度。","抵達 20:50 到 21:00 用餐時間過緊，請確認。"]},
+{d:"12/3",w:"週四",t:"北部：古宇利・美麗海",stay:"待確認（建議那霸）",items:[
+ {time:"",n:"許田休息站",q:"道の駅 許田",info:"高速公路出口休息站，PDF 排豬排午餐。",stay:"約 1 小時"},
+ {time:"",n:"古宇利島",q:"古宇利島",info:"跨海大橋與海灘景觀。",stay:"約 1.5 小時",drive:"約 35 分（估）"},
+ {time:"",n:"沖繩美麗海水族館",q:"沖縄美ら海水族館",info:"冬季開館時間與最後入場請查官網。",stay:"約 2 小時",drive:"約 35 分（估）"},
+ {time:"19:00",n:"WAGYU SUKIYAKI（已訂位）",q:"WAGYU SUKIYAKI 那霸 国際通り",info:"國際通晚餐，已訂位 19:00。",stay:"約 1.5 小時",drive:"約 1 小時 50 分（估）"}],
+ notes:["日落約 17:45，離開美麗海後是夜間行車。","為趕 19:00 訂位，建議最遲 17:00 前離開美麗海，請確認。"]},
+{d:"12/4",w:"週五",t:"南部：玉泉洞・瀨長島",stay:"待確認",items:[
+ {time:"",n:"zigzags opportunity（PDF 內容不明）",q:"zigzags opportunity 沖縄",info:"PDF 只有連結文字，請確認地點。",stay:"待確認"},
+ {time:"",n:"波上宮",q:"波上宮",info:"那霸海邊神社。",stay:"約 40 分鐘"},
+ {time:"",n:"沖繩世界文化王國・玉泉洞",q:"おきなわワールド 玉泉洞",info:"鐘乳石洞。",stay:"約 2 小時",drive:"約 40 分（估）"},
+ {time:"",n:"系滿海鮮市場（中餐）",q:"糸満漁民食堂",info:"PDF 註明中餐，店家請確認。",stay:"約 1 小時",drive:"約 25 分（估）"},
+ {time:"",n:"iias 沖繩豐崎（DMM 水族館）",q:"iias沖縄豊崎",info:"購物與 DMM 水族館。",stay:"約 2 小時",drive:"約 15 分（估）"},
+ {time:"",n:"瀨長島 Umikaji Terrace",q:"瀬長島ウミカジテラス",info:"日落與飛機景觀。",stay:"約 1.5 小時",drive:"約 10 分（估）"}],
+ notes:["順序為那霸→南部→回那霸附近，請確認 zigzags 是否在行程前段。"]},
+{d:"12/5",w:"週六",t:"首里・中部・美國村",stay:"待確認",items:[
+ {time:"",n:"HUU'S COFFEE",q:"HUU'S COFFEE 沖縄",info:"早晨咖啡，店址請確認。",stay:"約 45 分鐘"},
+ {time:"12:30–13:00",n:"首里城",q:"首里城公園",info:"PDF 指定時段，時間請預約或確認入場規定。",stay:"約 1.5 小時"},
+ {time:"",n:"萬座毛",q:"万座毛",info:"海岸斷崖景點。",stay:"約 45 分鐘",drive:"約 1 小時（估）"},
+ {time:"",n:"座喜味城跡",q:"座喜味城跡",info:"世界遺產城跡，閉園時間請確認。",stay:"約 45 分鐘",drive:"約 25 分（估）"},
+ {time:"",n:"永旺夢樂城沖繩來客夢",q:"イオンモール沖縄ライカム",info:"購物中心，已確認店別。",stay:"約 1 小時",drive:"約 25 分（估）"},
+ {time:"20:00",n:"美國村煙火＋晚餐",q:"美浜アメリカンビレッジ",info:"煙火 20:00，晚餐餐廳 PDF 尚未決定。",stay:"約 2.5 小時",drive:"約 10 分（估）"}],
+ notes:["12/5 煙火日期請查美國村官網確認。","首里城與萬座毛合計行程緊湊，天黑後北部沿海路請小心。"]},
+{d:"12/6",w:"週日",t:"東部離島・藝術",stay:"待確認",items:[
+ {time:"",n:"泊港海鮮市場（早餐）",q:"泊いゆまち",info:"早餐。",stay:"約 1 小時"},
+ {time:"",n:"Mame Pole Pole Coffee",q:"Mame Pole Pole Coffee 沖縄",info:"店址請確認。",stay:"約 45 分鐘"},
+ {time:"",n:"宮城島・濱比嘉島",q:"浜比嘉島",info:"海中道路後的離島景點。",stay:"約 2 小時"},
+ {time:"",n:"佐喜真美術館",q:"佐喜眞美術館",info:"普天間基地旁，休館日請確認。",stay:"約 1 小時"},
+ {time:"",n:"underscore COFFEE STAND",q:"underscore COFFEE STAND 沖縄",info:"店址請確認。",stay:"約 40 分鐘"},
+ {time:"20:20",n:"Buchi Kumojiten ぶち 久茂地2号店",q:"ぶち 久茂地2号店",info:"PDF 排 20:20，是否已訂位請確認。",stay:"約 1.5 小時"}],
+ notes:["海中道路遇強風請減速。"]},
+{d:"12/7",w:"週一",t:"逛街・還車",stay:"建議靠近機場（08:15 班機）",items:[
+ {time:"",n:"PARCO CITY",q:"PARCO CITY 浦添",info:"逛街日，行程未定。",stay:"彈性"},
+ {time:"",n:"加油並還車",q:"那覇空港 レンタカー返却",info:"請依租車公司規定先加滿油。",stay:"",drive:"請預留機場交通時間"},
+ {time:"18:00",n:"還車時限",q:"那覇空港",info:"PDF 標示 18:00 還車。",stay:""}],
+ notes:["還車前請確認 ETC 卡退還與車輛檢查。"]},
+{d:"12/8",w:"週二",t:"返台",stay:"—",items:[
+ {time:"08:15",n:"MM921 那霸→桃園",q:"那霸空港 国際線",info:"08:55 抵達桃園，建議 06:00 前到機場。",stay:""}],
+ notes:["班機早，請提前安排交通與早餐。"]}];
+const FOOD=[
+{r:"那霸",n:"LUCKY 居酒屋",tag:"PDF",q:"LUCKY居酒屋 那霸",h:"待確認",p:"待確認",m:"待確認",t:"機場至店車程待確認"},
+{r:"那霸",n:"WAGYU SUKIYAKI",tag:"PDF",q:"WAGYU SUKIYAKI 那霸 国際通り",h:"19:00 已訂位",p:"待確認",m:"壽喜燒",t:"國際通步行範圍"},
+{r:"北部",n:"Kouri Shrimp 古宇利蝦",tag:"建議",q:"Kouri Shrimp 古宇利島",h:"待確認",p:"待確認",m:"蒜香蝦飯",t:"在古宇利島，順路"},
+{r:"首里",n:"首里そば",tag:"建議",q:"首里そば 首里城",h:"待確認（常見午餐時段營業）",p:"待確認",m:"沖繩麵",t:"首里城附近，約 10 分"},
+{r:"那霸",n:"Buchi Kumojiten 久茂地2号店",tag:"PDF",q:"ぶち 久茂地2号店",h:"20:20 到店",p:"待確認",m:"待確認",t:"久茂地"}];
+const CK={"護照及重要文件":["護照（效期 6 個月以上）","Visit Japan Web 入境 QR","駕照日文譯本／台灣駕照正本","身分證"],"機票及租車文件":["MM930／MM921 電子機票","租車預約確認","ETC 卡確認"],"相機及充電設備":["手機充電線","行動電源","車用手機架與充電器","相機與記憶卡"],"盥洗用品":["牙刷牙膏","保養品","常備藥品"],"出發前確認事項":["日圓現金與信用卡","網路 eSIM／漫遊","確認住宿（PDF 未提供）","確認 12/5 煙火日期","查詢天氣"]};
+const WX=[["氣象廳 沖繩預報與警報","https://www.jma.go.jp/bosai/forecast/#area_type=offices&area_code=470000"],["Windy 那霸風速地圖","https://www.windy.com/26.212/127.679"],["Google 天氣：那霸","https://www.google.com/search?q=那霸+天氣"],["Google 天氣：名護（美麗海）","https://www.google.com/search?q=名護+天氣"],["Google 天氣：美國村（北谷）","https://www.google.com/search?q=北谷+天氣"]];
+/* ======== 以下為功能程式 ======== */
+const $=s=>document.querySelector(s),L=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},S=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));return 1}catch(e){alert("儲存空間已滿");return 0}};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const pages=[["home","首頁"],["days","行程"],["food","餐廳"],["budget","預算"],["photo","相簿"],["list","清單"],["wx","天氣"]];
+$("#nav").innerHTML=pages.map(p=>`<a data-p="${p[0]}">${p[1]}</a>`).join("");
+function go(p,d){document.querySelectorAll("section").forEach(s=>s.classList.toggle("on",s.id==p));document.querySelectorAll("nav a").forEach(a=>a.classList.toggle("on",a.dataset.p==p));if(d!=null)showDay(d);scrollTo(0,0);history.replaceState(null,"","#"+p)}
+$("#nav").onclick=e=>e.target.dataset.p&&go(e.target.dataset.p);
+const DL=DAYS.map((d,i)=>`<button class="chip" data-i="${i}">DAY ${i+1}<br><small>${d.d}</small></button>`).join("");
+$("#quick").innerHTML=DL;$("#dtabs").innerHTML=DL;
+$("#quick").onclick=e=>{const b=e.target.closest("button");b&&go("days",+b.dataset.i)};
+$("#dtabs").onclick=e=>{const b=e.target.closest("button");b&&showDay(+b.dataset.i)};
+function showDay(i){document.querySelectorAll("#dtabs .chip").forEach((c,j)=>c.classList.toggle("on",i==j));const d=DAYS[i],names=d.items.map(x=>x.q);
+const route=names.length>1?"https://www.google.com/maps/dir/"+names.map(encodeURIComponent).join("/"):G(names[0]);
+$("#day").innerHTML=`<div class="card"><small style="color:var(--mute)">DAY ${i+1}　${d.d} ${d.w}</small><h2>${esc(d.t)}</h2><p>住宿：${esc(d.stay)}</p><a class="btn" target="_blank" rel="noopener" href="${route}">開啟整日行車路線</a>
+<div class="tl">${d.items.map((x,k)=>{const prev=k?"&origin="+encodeURIComponent(d.items[k-1].q):"";return `${x.drive?`<div class="drv">🚗 ${esc(x.drive)}</div>`:""}<div class="st"><span class="tm">${esc(x.time||"時間待定")}</span><h3>${esc(x.n)}</h3><p style="margin:2px 0">${esc(x.info)}</p>${x.stay?`<span class="tag">停留 ${esc(x.stay)}</span>`:""}<a class="btn o" target="_blank" rel="noopener" href="${k?"https://www.google.com/maps/dir/?api=1&destination="+encodeURIComponent(x.q)+prev+"&travelmode=driving":G(x.q)}">${k?"從上一站導航":"Google Maps"}</a></div>`}).join("")}</div>
+${d.notes.map(n=>`<div class="warn">⚠ ${esc(n)}</div>`).join("")}
+<div class="warn" style="background:var(--oat);color:var(--ink)">地址、營業時間請點 Google Maps 查看最新資訊；車程為估計值。</div></div>`}
+$("#flags").innerHTML=["PDF 沒有住宿資料，每日住宿皆標示「待確認」。","12/2 抵達 20:50，PDF 排 21:00 居酒屋，時間偏緊。","12/3 美麗海到那霸 19:00 訂位，需確認離開時間。","12/4 的 zigzags opportunity 不明，請補地點。","12/5 美國村煙火日期請確認。","12/7 18:00 還車，12/8 08:15 班機，住宿建議靠近機場。","需求文中提到「北海道」，已當作沖繩處理。"].map(t=>`<div class="warn">${t}</div>`).join("");
+$("#fl").innerHTML=FOOD.map(f=>`<div class="card"><span class="tag">${f.tag}</span><span class="tag">${f.r}</span><h3>${esc(f.n)}</h3><p style="margin:4px 0">推薦：${esc(f.m)}<br>營業時間／公休：${esc(f.h)}<br>價格：${esc(f.p)}<br>交通：${esc(f.t)}</p><a class="btn o" target="_blank" rel="noopener" href="${G(f.q)}">Google Maps</a></div>`).join("");
+$("#wl").innerHTML=WX.map(w=>`<a class="card" style="display:block;color:inherit;text-decoration:none" target="_blank" rel="noopener" href="${w[1]}">${w[0]}</a>`).join("");
+/* countdown */
+function tick(){const t=new Date("2026-12-02T18:20:00+08:00")-Date.now();if(t<=0){$("#cd").textContent="旅程進行中或已結束";return}const m=Math.floor(t/6e4);$("#cd").innerHTML=`距離出發${[[Math.floor(m/1440),"天"],[Math.floor(m/60)%24,"時"],[m%60,"分"]].map(x=>`<b>${x[0]}<small>${x[1]}</small></b>`).join("")}`}tick();setInterval(tick,3e4);
+/* budget */
+let E=L("exp",[]),cfg=L("cfg",{t:100000,r:0.21,a:"我",b:"旅伴"}),ed=null;
+function saveCfg(){cfg={t:+$("#bt").value||0,r:+$("#br").value||0,a:$("#pa").value||"A",b:$("#pb").value||"B"};S("cfg",cfg);rb()}
+["bt","br","pa","pb"].forEach(i=>$("#"+i).oninput=saveCfg);
+const twd=e=>e.u=="JPY"?e.a*cfg.r:e.a;
+function rb(){$("#bt").value=cfg.t;$("#br").value=cfg.r;$("#pa").value=cfg.a;$("#pb").value=cfg.b;$("#p").innerHTML=`<option value="a">${esc(cfg.a)} 付款<option value="b">${esc(cfg.b)} 付款`;
+const tot=E.reduce((s,e)=>s+twd(e),0),pa=E.filter(e=>e.p=="a").reduce((s,e)=>s+twd(e),0),pb=tot-pa;
+$("#sum").innerHTML=`<div class="grid"><div><small>總花費（台幣）</small>${Math.round(tot).toLocaleString()}</div><div><small>剩餘預算</small>${Math.round(cfg.t-tot).toLocaleString()}</div><div><small>${esc(cfg.a)} 已付</small>${Math.round(pa).toLocaleString()}</div><div><small>${esc(cfg.b)} 已付</small>${Math.round(pb).toLocaleString()}</div></div><p>${tot>cfg.t?"⚠ 已超出預算":""} 均分後${pa>pb?esc(cfg.b)+" 需付給 "+esc(cfg.a):esc(cfg.a)+" 需付給 "+esc(cfg.b)} 約 TWD ${Math.round(Math.abs(pa-pb)/2).toLocaleString()}</p>`;
+$("#tb").innerHTML="<tr><th>類別<th>金額<th>台幣<th>付款<th></tr>"+E.map((e,i)=>`<tr><td>${e.c}<br><small>${esc(e.n)}</small><td>${e.a} ${e.u}<td>${Math.round(twd(e)).toLocaleString()}<td>${esc(cfg[e.p])}<td><button class="x" data-e="${i}">✎</button><button class="x" data-d="${i}">✕</button></tr>`).join("")}
+$("#add").onclick=()=>{const a=+$("#a").value;if(!a)return alert("請輸入金額");const e={c:$("#c").value,n:$("#n").value,a,u:$("#u").value,p:$("#p").value};ed!=null?E[ed]=e:E.push(e);ed=null;$("#a").value=$("#n").value="";$("#add").textContent="新增";$("#cx").hidden=1;S("exp",E);rb()};
+$("#cx").onclick=()=>{ed=null;$("#add").textContent="新增";$("#cx").hidden=1;$("#a").value=$("#n").value=""};
+$("#tb").onclick=e=>{const b=e.target.closest("button");if(!b)return;if(b.dataset.d!=null&&confirm("刪除這筆？")){E.splice(+b.dataset.d,1);S("exp",E);rb()}if(b.dataset.e!=null){ed=+b.dataset.e;const x=E[ed];$("#c").value=x.c;$("#n").value=x.n;$("#a").value=x.a;$("#u").value=x.u;$("#p").value=x.p;$("#add").textContent="儲存修改";$("#cx").hidden=0;scrollTo(0,$("#ft").offsetTop)}};rb();
+/* photos */
+let PH=L("ph",{}),pd=0;
+$("#ptabs").innerHTML=DAYS.map((d,i)=>`<button class="chip" data-i="${i}">DAY ${i+1}</button>`).join("");
+$("#ptabs").onclick=e=>{const b=e.target.closest("button");if(b){pd=+b.dataset.i;rp()}};
+function rp(){document.querySelectorAll("#ptabs .chip").forEach((c,j)=>c.classList.toggle("on",j==pd));const a=PH[pd]||[];$("#wall").innerHTML=a.length?a.map((s,i)=>`<img src="${s}" data-i="${i}" alt="照片">`).join(""):'<p style="color:var(--mute)">這天還沒有照片，按「上傳照片」開始收藏。</p>'}
+$("#up").onchange=async e=>{for(const f of e.target.files){const s=await new Promise(r=>{const im=new Image;im.onload=()=>{const k=Math.min(1,900/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=im.width*k;c.height=im.height*k;c.getContext("2d").drawImage(im,0,0,c.width,c.height);r(c.toDataURL("image/jpeg",.7))};im.src=URL.createObjectURL(f)});(PH[pd]=PH[pd]||[]).push(s);if(!S("ph",PH)){PH[pd].pop();break}}e.target.value="";rp()};
+$("#wall").onclick=e=>{if(e.target.tagName=="IMG"){$("#lb img").src=e.target.src;$("#lb").style.display="flex";$("#lb").dataset.i=e.target.dataset.i}};
+$("#lb").onclick=e=>{if(e.target.tagName!="IMG"){$("#lb").style.display="none";return}if(confirm("刪除這張照片？")){PH[pd].splice(+$("#lb").dataset.i,1);S("ph",PH);$("#lb").style.display="none";rp()}};rp();
+/* checklist */
+let CL=L("cl",null)||Object.entries(CK).flatMap(([g,a])=>a.map(t=>({g,t,d:0})));
+$("#lg").innerHTML=Object.keys(CK).map(g=>`<option>${g}`).join("");
+function rl(){$("#lc").innerHTML=Object.keys(CK).map(g=>`<div class="card"><h3>${g}</h3>${CL.map((x,i)=>x.g==g?`<div class="ck ${x.d?"d":""}"><input type="checkbox" data-t="${i}" ${x.d?"checked":""}><span>${esc(x.t)}</span><button class="x" data-r="${i}">✕</button></div>`:"").join("")}</div>`).join("")}
+$("#lc").onclick=e=>{const t=e.target;if(t.dataset.t!=null)CL[+t.dataset.t].d=t.checked?1:0;else if(t.dataset.r!=null)CL.splice(+t.dataset.r,1);else return;S("cl",CL);rl()};
+$("#la").onclick=()=>{const v=$("#li").value.trim();if(!v)return;CL.push({g:$("#lg").value,t:v,d:0});$("#li").value="";S("cl",CL);rl()};rl();
+go(pages.some(p=>p[0]==location.hash.slice(1))?location.hash.slice(1):"home");
+</script></body></html>
